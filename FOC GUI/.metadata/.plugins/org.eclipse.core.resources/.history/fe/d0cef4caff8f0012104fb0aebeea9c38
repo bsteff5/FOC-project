@@ -1,0 +1,112 @@
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.*;
+import java.awt.*;
+
+public class FacultyPage  extends JFrame{
+
+	/**
+	 * This method creates the window.
+	 */
+	public void start(String name){
+		setTitle("Faculty");
+		decideFunction = name;
+		pack();
+		setVisible(true);
+		initComponents();
+		setSize(1025,650);
+	}
+
+	private void initComponents(){
+		
+		panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(Color.LIGHT_GRAY);   
+	
+		//main label
+		Font m = new Font("SansSerif", Font.BOLD, 24);
+		title = new JLabel("Faculty Page");
+		title.setBounds(30,0,1000, 100);
+		title.setFont(m);
+		panel.add(title);
+		
+		JButton close = new JButton("Close Window");
+		close.setBounds(875,0,125,30);
+		close.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				dispose();
+			}
+		});;
+		panel.add(close);
+		
+		JLabel enterName =  new JLabel("Please enter name of the faculty member");
+		enterName.setBounds(30,75,500,50);
+		panel.add(enterName);
+		
+		JLabel enterName2 = new JLabel("Name:");
+		enterName2.setBounds(30,90,50,25);
+		panel.add(enterName2);
+		
+		JTextField enterName3 = new JTextField();
+		enterName3.setBounds(60,90,300,25);
+		panel.add(enterName3);
+		
+		facultyName = enterName3.getText();
+		
+	    add(panel);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		if(decideFunction == "add new faculty"){
+			addFaculty();
+		}
+		
+		else if(decideFunction == "view past committees"){
+			viewComm();
+		}
+		else if(decideFunction == "search faculty"){
+			searchFaculty();
+		}
+		
+		else if(decideFunction == "remove faculty"){
+			removeFaculty();
+		}
+		else{
+			//do nothing
+		}
+	}
+	
+	public void addFaculty(){
+		
+	}
+	
+	public void viewComm(){
+		
+	}
+	public void searchFaculty(){
+		
+	}
+	public void removeFaculty(){
+		int n = JOptionPane.showConfirmDialog(
+				frame,
+				"Are you sure you want to remove " + facultyName + " from eligible members?",
+				"Log out confirmation",
+				JOptionPane.YES_NO_OPTION);;
+				if(n == 0){
+					JOptionPane.showMessageDialog(frame,facultyName + " has been removed from eligible members",
+							"Attention!",
+							JOptionPane.WARNING_MESSAGE);
+				}
+	}
+
+	//data members 
+	private JLabel title;
+	private JInternalFrame frame;
+	private JPanel panel;
+	
+	private String decideFunction, facultyName;
+	
+}

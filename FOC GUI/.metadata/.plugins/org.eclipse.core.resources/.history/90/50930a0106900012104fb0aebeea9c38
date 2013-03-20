@@ -1,0 +1,265 @@
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.*;
+import java.awt.*;
+
+
+/**
+ * This class creates a JFrame to display Homepage profile for a user when they log in.
+ * @author Kelly Brown, David Snellings, Brent Steffey
+ */
+
+@SuppressWarnings("serial")
+public class HomePage  extends JFrame{
+
+	public void start(){
+		pack();
+		setVisible(true);
+		initComponents();
+		setSize(1025,725);
+		this.setTitle("FOC_DB");
+		JTabbedPane();
+	}
+
+	/**
+	 * This initializes the JFrame 
+	 * @param 
+	 */
+	
+	private void initComponents(){
+	
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(Color.LIGHT_GRAY);   
+		add(panel);
+		setSize(1025,725);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	/**
+	 * @author javabeginner.com
+	 * @description The tabbed template was gotten from javabeginner.com.
+	 */
+	public void JTabbedPane() {
+		ImageIcon icon = new ImageIcon("java-swing-tutorial.JPG");
+		JTabbedPane jtbExample = new JTabbedPane();
+		JPanel jplInnerPanel1 = createInnerPanelHome();
+		jtbExample.addTab("Home", icon, jplInnerPanel1, "Home Page");
+		//jtbExample.setSelectedIndex(0);
+		JPanel jplInnerPanel2 = createInnerPanelCommittee();
+		jtbExample.addTab("Committees", icon, jplInnerPanel2,"Commitees");
+		JPanel jplInnerPanel3 = createInnerPanelFaculty();
+		jtbExample.addTab("Faculty", icon, jplInnerPanel3, "Faculty");
+		//setLayout(new GridLayout(1, 1));
+		add(jtbExample);
+	}
+	/**
+	 * @author javabeginner.com
+	 * @description Some of the tabbed template was gotten from javabeginner.com
+	 */
+	protected JPanel createInnerPanelHome() {
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(Color.LIGHT_GRAY);   
+		add(panel);
+		setSize(950,725);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JButton close = new JButton("Exit System");
+		close.setBounds(800,0,125,30);
+		close.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				dispose();
+			}
+		});;
+		panel.add(close);
+		
+		findMembers = new JButton("Find Members");
+		findMembers.setBounds(20,10,150,50);
+		panel.add(findMembers);
+		
+		
+		JTextArea results = new JTextArea("");
+		results.setBounds(20,80,700,700);
+		results.append("All results will be displayed here.");
+		panel.add(results);
+		return panel;
+	}
+	
+	protected JPanel createInnerPanelCommittee() {
+		final JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(Color.LIGHT_GRAY);   
+		add(panel);
+		setSize(950,725);
+		
+		JButton close = new JButton("Exit System");
+		close.setBounds(800,0,125,30);
+		close.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				dispose();
+			}
+		});;
+		panel.add(close);
+		
+
+		Font f = new Font("SansSerif", Font.BOLD, 16);
+		start = new JLabel("Please select an option below to begin. ");
+		start.setBounds(30,25,300,50);
+		start.setFont(f);
+		panel.add(start);
+		
+		addMembers = new JButton("Add Members");
+		addMembers.setMnemonic(KeyEvent.VK_C); 
+	    addMembers.setBounds(30,80,150,25);
+	    addMembers.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				myCommittee.start("add members");
+			}
+		});;
+	    panel.add(addMembers);
+		
+		
+		addCommittee = new JButton("Add New Committee");
+		addCommittee.setMnemonic(KeyEvent.VK_C); 
+	    addCommittee.setBounds(185,80,150,25);
+	    addCommittee.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				myCommittee.start("add new committee");
+			}
+		});;
+	    panel.add(addCommittee);
+		
+		searchCommittee = new JButton("Search a Committee");
+		searchCommittee.setMnemonic(KeyEvent.VK_C); 
+	    searchCommittee.setBounds(340,80,150,25);
+	    searchCommittee.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				myCommittee.start("search committee");
+			}
+		});;
+	    panel.add(searchCommittee);
+		
+		removeCommittee = new JButton("Remove a Committee");
+		removeCommittee.setMnemonic(KeyEvent.VK_C); 
+	    removeCommittee.setBounds(495,80,150,25);
+	    removeCommittee.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				myCommittee.start("remove committee");
+			}
+		});;
+	    panel.add(removeCommittee);
+		
+		JTextArea results = new JTextArea("");
+		results.setBounds(20,130,700,700);
+		results.append("All results will be displayed here.");
+		panel.add(results);
+		return panel;
+	}
+	protected JPanel createInnerPanelFaculty() {
+		final JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(Color.LIGHT_GRAY);   
+		add(panel);
+		setSize(950,725);
+		
+		Font f = new Font("SansSerif", Font.BOLD, 16);
+		start = new JLabel("Please select an option below to begin. ");
+		start.setBounds(30,25,300,50);
+		start.setFont(f);
+		panel.add(start);
+		
+		JButton close = new JButton("Exit System");
+		close.setBounds(800,0,125,30);
+		close.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				dispose();
+			}
+		});;
+		panel.add(close);
+		
+		addFaculty = new JButton("Add Faculty");
+		addFaculty.setMnemonic(KeyEvent.VK_C); 
+	    addFaculty.setBounds(30,80,150,25);
+	    addFaculty.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				myFaculty.start("add new faculty");
+			}
+		});;
+	    panel.add(addFaculty);
+	    
+	    JTextArea results = new JTextArea("");
+		results.setBounds(20,130,700,700);
+		results.append("All results will be displayed here.");
+		panel.add(results);
+		
+		
+		pastCommittee = new JButton("Past Committees");
+		pastCommittee.setMnemonic(KeyEvent.VK_C); 
+	    pastCommittee.setBounds(185,80,150,25);
+	    pastCommittee.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				myFaculty.start("view past committees");
+			}
+		});;
+	    panel.add(pastCommittee);
+		
+		
+		searchFaculty = new JButton("Search Faculty");
+		searchFaculty.setMnemonic(KeyEvent.VK_C); 
+	    searchFaculty.setBounds(340,80,150,25);
+	    searchFaculty.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				myFaculty.start("search faculty");
+			}
+		});;
+	    panel.add(searchFaculty);
+		
+		removeFaculty = new JButton("Remove Faculty");
+		removeFaculty.setMnemonic(KeyEvent.VK_C); 
+	    removeFaculty.setBounds(495,80,150,25);
+	    removeFaculty.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				
+				myFaculty.start("remove faculty");
+			}
+		});;
+	    panel.add(removeFaculty);
+	
+		return panel;
+	}
+
+	//data members
+	private JLabel start, title;
+	private JInternalFrame frame;
+	private JPanel panel;
+	private String facultyName;
+	private JButton addFaculty, pastCommittee, searchFaculty, removeFaculty, findMembers;
+	private JButton addMembers, addCommittee, searchCommittee, removeCommittee;	
+	
+	private FacultyPage myFaculty = new FacultyPage();
+	private CommitteePage myCommittee = new CommitteePage();
+}

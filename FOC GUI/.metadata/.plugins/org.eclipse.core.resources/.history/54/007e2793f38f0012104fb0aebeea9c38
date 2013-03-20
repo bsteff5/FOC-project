@@ -1,0 +1,155 @@
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.*;
+import java.awt.*;
+
+@SuppressWarnings("serial")
+public class CommitteePage  extends JFrame{
+
+	@SuppressWarnings("unused")
+
+	/**
+	 * This method creates the window.
+	 */
+	public void start(){
+		setTitle("FOC_DB");
+		
+		pack();
+		setVisible(true);
+		initComponents();
+		setSize(1025,650);
+		
+	}
+
+	/**
+	 *  Initializes components for the Twitter Interface.
+	 */
+	private void initComponents(){
+		addCommbool = false; searchCommbool = false; removeCommbool = false; addMemberbool = false; 
+		panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(Color.LIGHT_GRAY);   
+	
+		JButton close = new JButton("Close Window");
+		close.setBounds(875,0,125,30);
+		close.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				dispose();
+			}
+		});;
+		panel.add(close);
+
+		//main label
+		Font m = new Font("SansSerif", Font.BOLD, 24);
+		title = new JLabel("Committee Page");
+		title.setBounds(30,0,1000, 100);
+		title.setFont(m);
+		panel.add(title);
+		
+		//prompt user label
+		Font f = new Font("SansSerif", Font.BOLD, 16);
+		start = new JLabel("Please select an option below to begin. ");
+		start.setBounds(30,75,300,50);
+		start.setFont(f);
+		panel.add(start);
+		
+		addFaculty = new JButton("Add Members");
+		addFaculty.setMnemonic(KeyEvent.VK_C); 
+	    addFaculty.setBounds(30,130,150,25);
+	    addFaculty.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				addMemberbool = true;
+			}
+		});;
+	    panel.add(addFaculty);
+		
+		
+		addCommittee = new JButton("Add New Committee");
+		addCommittee.setMnemonic(KeyEvent.VK_C); 
+	    addCommittee.setBounds(185,130,150,25);
+	    addCommittee.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				addCommbool = true;
+			}
+		});;
+	    panel.add(addCommittee);
+		
+		
+		searchCommittee = new JButton("Search a Committee");
+		searchCommittee.setMnemonic(KeyEvent.VK_C); 
+	    searchCommittee.setBounds(340,130,150,25);
+	    searchCommittee.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+					searchCommbool = true;	
+			}
+		});;
+	    panel.add(searchCommittee);
+		
+		
+		removeCommittee = new JButton("Remove a Committee");
+		removeCommittee.setMnemonic(KeyEvent.VK_C); 
+	    removeCommittee.setBounds(495,130,150,25);
+	    removeCommittee.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				removeCommbool = true;
+			}
+		});;
+	    panel.add(removeCommittee);
+	    
+	    JButton enter = new JButton("Enter");
+		enter.setBounds(355,85,100,20);
+		enter.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				addCommbool = true;
+			}
+		});;
+		panel.add(enter);
+	    
+	    ButtonGroup group = new ButtonGroup();
+	    group.add(addFaculty);
+	    group.add(addCommittee);
+	    group.add(searchCommittee);
+	    group.add(removeCommittee);
+	    
+	    if(addCommbool == true){
+	    	JLabel name = new JLabel("Name:");
+	    	name.setBounds(300,300,300,300);
+	    	panel.add(name);
+	    	addCommbool = false;
+	    }
+	    else if(removeCommbool == true){
+	    	
+	    }
+	    else if(searchCommbool == true){
+	    	
+	    }
+	    else if(addMemberbool == true){
+	    	
+	    }
+	    
+		add(panel);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	//data members 
+	private JLabel start, title;
+	private JInternalFrame frame;
+	private JPanel panel;
+	
+	private boolean removeCommbool, searchCommbool, addMemberbool, addCommbool; 
+	private JButton addFaculty, addCommittee, searchCommittee, removeCommittee;	
+}
