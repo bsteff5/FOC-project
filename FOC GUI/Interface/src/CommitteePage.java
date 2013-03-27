@@ -134,7 +134,7 @@ public class CommitteePage  extends JFrame{
 	private String removeComm(){
 		int n = JOptionPane.showConfirmDialog(
 				frame,
-				"Are you sure you want to remove " + CommitteeName + " from eligible members?",
+				"Are you sure you want to remove " + CommitteeName + " from committees?",
 				"Log out confirmation",
 				JOptionPane.YES_NO_OPTION);;
 				if(n == 0){

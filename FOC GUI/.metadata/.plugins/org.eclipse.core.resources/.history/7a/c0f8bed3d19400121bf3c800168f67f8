@@ -12,9 +12,9 @@ public class SystemStart{
 	 */
 	private static Connection conn;
 	public static void main(String[] args) {
-		foc_db.start();
+		//	foc_db.start();
 
-/*
+
 		conn = null;
 		try{
 			String userName = "root";
@@ -53,6 +53,6 @@ public class SystemStart{
 		}
 		catch (Exception err) {
 			System.out.println("ERROR: " + err);
-		}*/
+		}
 	}
 }
