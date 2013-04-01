@@ -20,5 +20,15 @@ CREATE TABLE `member` (
   `last_name` varchar(35) NOT NULL default '',
   `first_name` varchar(3) NOT NULL default '',
   `department` varchar(50) NOT NULL default '',
+  `eligib` char(1) default '1',
   PRIMARY KEY  (`member_id`)
+) ;
+
+DROP TABLE IF EXISTS `committee`;
+CREATE TABLE `committee` (
+  `com_id` int(11) NOT NULL auto_increment,
+  `name` varchar(35) NOT NULL default '',
+  `size` varchar(3) NOT NULL default '',
+  `members` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`com_id`)
 ) ;
