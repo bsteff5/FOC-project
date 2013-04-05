@@ -54,4 +54,16 @@ public void searchComm(String Comm){
 	catch(Exception e){
   }
 }
+public boolean verifyFac(String Fac){
+	try{
+	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
+	PreparedStatement statement= con.prepareStatement("SELECT FROM Faculty WHERE name LIKE ?");
+	statement.setString(1,Fac);
+	statement.execute();
+	return(statement.equals("Yes"));
+	}
+	catch(Exception e){
+		return false;
+  }
+}
 }
