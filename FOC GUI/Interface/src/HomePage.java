@@ -1,5 +1,4 @@
 import javax.swing.*;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
@@ -179,6 +178,19 @@ public class HomePage  extends JFrame{
 		});;
 	    panel.add(removeCommittee);
 	    
+	    addChair = new JButton("Add New Chair");
+	    addChair.setMnemonic(KeyEvent.VK_C); 
+	    addChair.setBounds(675,80,125,25);
+	    addChair.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				results2.removeAll();
+				results2.append(myCommittee.start("add chair"));
+			}
+		});;
+	    panel.add(addChair);
+	    
 		return panel;
 	}
 	
@@ -274,7 +286,7 @@ public class HomePage  extends JFrame{
 	private JInternalFrame frame;
 	private JPanel panel;
 	private JButton addFaculty, pastCommittee, searchFaculty, removeFaculty, findMembers;
-	private JButton addMembers, addCommittee, searchCommittee, removeCommittee;	
+	private JButton addMembers, addCommittee, searchCommittee, removeCommittee, addChair;	
 	private JTextArea results1, results2, results3;
 	private FacultyPage myFaculty = new FacultyPage();
 	private CommitteePage myCommittee = new CommitteePage();
